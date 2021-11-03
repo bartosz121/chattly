@@ -8,6 +8,7 @@ authors = ["bartosz121 <bmagiera121@gmail.com>"]
 python = "^3.9"
 Django = "^3.2.8"
 channels = "^3.0.4"
+channels-redis = "^3.3.1"
 
 [tool.poetry.dev-dependencies]
 black = {version = "^21.9b0", allow-prereleases = true}
