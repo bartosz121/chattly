@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Roboto', serif;
+    }
+
+    .hover-cursor:hover {
+        cursor: pointer;
+    }
+}
