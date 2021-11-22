@@ -7,7 +7,11 @@ module.exports = {
     extend: {
       colors: {
         sky: colors.sky,
-      }
+      },
+      height: {
+        '1/10': '10%',
+        '9/10': '90%',
+      },
     },
   },
   variants: {
