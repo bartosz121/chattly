@@ -13,10 +13,16 @@ module.exports = {
         '9/10': '90%',
         '95/100': '95%',
       },
+      width: {
+        '9/10': '90%',
+        '95/100': '95%',
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')
+  ],
 }
