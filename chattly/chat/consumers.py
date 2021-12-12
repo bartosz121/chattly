@@ -17,8 +17,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         await self.accept()
 
+        await self.send_admin_chat_message(f"{self.username} has joined the room")
+
     async def disconnect(self, close_code):
         await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
+
+        await self.send_admin_chat_message(f"{self.username} has disconnected")
 
     async def receive(self, text_data):
         receive_data = json.loads(
@@ -76,3 +80,19 @@ class ChatConsumer(AsyncWebsocketConsumer):
         receive_data = event["receive_data"]
 
         await self.send(text_data=json.dumps(receive_data))
+
+    async def send_admin_chat_message(self, message):
+        dt = timezone.now()
+        msg_dict = {
+            "dt": datetime.timestamp(dt),
+            "message": message,
+            "peerUsername": "Admin",
+        }
+
+        await self.channel_layer.group_send(
+            self.room_group_name,
+            {
+                "type": "chat_message",
+                "receive_data": {"msgType": "chat_message", "message": msg_dict},
+            },
+        )
