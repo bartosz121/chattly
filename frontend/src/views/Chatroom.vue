@@ -198,6 +198,8 @@ export default {
   },
   data() {
     return {
+      ws_host: process.env.VUE_APP_WS_HOST,
+      ws_port: process.env.VUE_APP_WS_PORT,
       rerenderKey: 0, // used to force rerender
       websocket: null,
       connectedPeers: {},
@@ -419,10 +421,9 @@ export default {
         wsStart = "wss://";
       }
 
-      // const endPoint = wsStart + location.host + location.pathname
       const endPoint =
         wsStart +
-        "localhost:8000/ws" +
+        `${this.ws_host}:${this.ws_port}/ws` +
         location.pathname +
         `?username=${this.username}`;
 
