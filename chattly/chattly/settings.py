@@ -141,7 +141,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [(env("CHANNEL_LAYER_HOST"), env("CHANNEL_LAYER_POST"))],
+            "hosts": [(env("CHANNEL_LAYER_HOST"), env("CHANNEL_LAYER_PORT"))],
         },
     },
 }
