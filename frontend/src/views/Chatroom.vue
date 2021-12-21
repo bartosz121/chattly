@@ -484,8 +484,8 @@ export default {
     },
 
     createOfferer(peerUsername, receiverChannelName) {
-      const peer = new RTCPeerConnection(null);
-      // const peer = new RTCPeerConnection(this.config);
+      // const peer = new RTCPeerConnection(null);
+      const peer = new RTCPeerConnection(this.config);
 
       const remoteStream = new MediaStream();
 
@@ -531,7 +531,10 @@ export default {
 
       peer.addEventListener("icecandidate", (e) => {
         if (e.candidate) {
-          // console.log('new ice candidate', JSON.stringify(peer.localDescription));
+          // console.log(
+          // "new ice candidate",
+          // JSON.stringify(peer.localDescription)
+          // );
           return;
         }
 
@@ -543,8 +546,8 @@ export default {
     },
 
     createAnswerer(offer, peerUsername, receiverChannelName) {
-      const peer = new RTCPeerConnection(null);
-      // const peer = new RTCPeerConnection(this.config);
+      // const peer = new RTCPeerConnection(null);
+      const peer = new RTCPeerConnection(this.config);
 
       const remoteStream = new MediaStream();
 
@@ -595,7 +598,10 @@ export default {
 
       peer.addEventListener("icecandidate", (e) => {
         if (e.candidate) {
-          // console.log('new ice candidate', JSON.stringify(peer.localDescription));
+          // console.log(
+          // "new ice candidate",
+          // JSON.stringify(peer.localDescription)
+          // );
           return;
         }
 
